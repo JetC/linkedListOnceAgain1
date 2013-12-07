@@ -7,27 +7,101 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
-typedef struct oneWayLinkedStructure{
+typedef struct oneAlsoTwoLinkedStructure{
     
     int data;
-    struct oneWayLinkedStructure *next;
-    struct oneWayLinkedStructure *prev;
+    struct oneAlsoTwoLinkedStructure *next;
+    struct oneAlsoTwoLinkedStructure *prev;
     
-}oneWayLinkedStructure, *OneWayLinkedList;
+}oneAlsoTwoLinkedStructure, *OneWayLinkedList, *TwoWaysLinkedList;
 
 
 OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
 {
-    OneWayLinkedList *p = NULL, *q = NULL, *r =NULL, list = NULL;
-    
-    //p
+    OneWayLinkedList p = NULL, r =NULL, list = NULL;
     
     
+    //p负责建立新节点,r负责临时存储
+
+    list = (OneWayLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
+    list->data = 0;
+    list->next = NULL;
+    list->prev = NULL;
     
+    for (int i = 1; i <= lengthOfTheCreatingList; i++)
+    {
+        p = (OneWayLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
+        //r = (OneWayLinkedList)malloc(sizeof(oneWayLinkedStructure));
+
+        p->data = i;
+        p->next = NULL;
+        p->prev = NULL;
+        
+        if (i == 1)
+        {
+            list->next = p;
+        }
+        else if (i >= 2)
+        {
+            r->next = p;
+        }
+        
+        r = p;
+        
+    }
     
+    return list;
+}
+
+
+TwoWaysLinkedList initTwoWaysLinkedList(int lengthOfTheCreatingList)
+{
+    TwoWaysLinkedList p = NULL, q = NULL, r = NULL, list = NULL;
+    
+    list = (TwoWaysLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
+    list->data = 0;
+    list->next = NULL;
+    list->prev = NULL;
+    
+    for (int i = 1;i <= lengthOfTheCreatingList; i++)
+    {
+        p = (TwoWaysLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
+        p->data = i;
+        p->next = NULL;
+        p->prev = NULL;
+        
+        if (i == 1)
+        {
+            list->next = p;
+        }
+        else
+        {
+            r->next = p;
+            
+        }
+        r = p;
+    }
+    return list;
     
 }
+
+
+void printOneWayLinkedList(oneAlsoTwoLinkedStructure *listToBePrinted)
+{
+    OneWayLinkedList p = NULL;
+    p = listToBePrinted;
+    while (p->next)
+    {
+        printf("%i\n",p->data);
+        p = p->next;
+    }
+    printf("%i\n",p->data);
+}
+
+
+
 
 
 
@@ -35,8 +109,8 @@ OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
 int main(int argc, const char * argv[])
 {
 
-    // insert code here...
-    printf("Hello, World!\n");
+    //printOneWayLinkedList(initOneWayLinkedList(50));
+    printOneWayLinkedList(initTwoWaysLinkedList(5));
     return 0;
 }
 
