@@ -8,6 +8,30 @@
 
 #include <stdio.h>
 
+typedef struct oneWayLinkedStructure{
+    
+    int data;
+    struct oneWayLinkedStructure *next;
+    struct oneWayLinkedStructure *prev;
+    
+}oneWayLinkedStructure, *OneWayLinkedList;
+
+
+OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
+{
+    OneWayLinkedList *p = NULL, *q = NULL, *r =NULL, list = NULL;
+    
+    //p
+    
+    
+    
+    
+    
+}
+
+
+
+
 int main(int argc, const char * argv[])
 {
 
