@@ -79,9 +79,10 @@ TwoWaysLinkedList initTwoWaysLinkedList(int lengthOfTheCreatingList)
         else
         {
             r->next = p;
-            
+            r->prev = q;
         }
         r = p;
+        q = p;
     }
     return list;
     
@@ -111,6 +112,13 @@ int main(int argc, const char * argv[])
 
     //printOneWayLinkedList(initOneWayLinkedList(50));
     printOneWayLinkedList(initTwoWaysLinkedList(5));
+    printf("The first num is %i, and 2nd num is %i, its  prev is %i\n",
+           
+           (int)initTwoWaysLinkedList(5)->next->data,
+           (int)initTwoWaysLinkedList(5)->next->next->data,
+           (int)initTwoWaysLinkedList(5)->next->next->prev->prev->prev->data
+           
+          );
     return 0;
 }
 
