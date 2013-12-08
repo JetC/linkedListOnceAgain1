@@ -58,7 +58,7 @@ OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
 
 TwoWaysLinkedList initTwoWaysLinkedList(int lengthOfTheCreatingList)
 {
-    TwoWaysLinkedList p = NULL, q = NULL, r = NULL, list = NULL;
+    TwoWaysLinkedList p = NULL, q = NULL, list = NULL;
     
     list = (TwoWaysLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
     list->data = 0;
@@ -78,12 +78,13 @@ TwoWaysLinkedList initTwoWaysLinkedList(int lengthOfTheCreatingList)
         }
         else
         {
-            r->next = p;
+            q->next = p;
             p->prev = q;
         }
-        r = p;
         q = p;
+        
     }
+    
     return list;
     
 }
