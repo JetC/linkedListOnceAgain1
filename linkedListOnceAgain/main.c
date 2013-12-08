@@ -79,7 +79,7 @@ TwoWaysLinkedList initTwoWaysLinkedList(int lengthOfTheCreatingList)
         else
         {
             r->next = p;
-            r->prev = q;
+            p->prev = q;
         }
         r = p;
         q = p;
@@ -116,7 +116,7 @@ int main(int argc, const char * argv[])
            
            (int)initTwoWaysLinkedList(5)->next->data,
            (int)initTwoWaysLinkedList(5)->next->next->data,
-           (int)initTwoWaysLinkedList(5)->next->next->prev->prev->prev->data
+           (int)initTwoWaysLinkedList(5)->next->next->prev->data
            
           );
     return 0;
