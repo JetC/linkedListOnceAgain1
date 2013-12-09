@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define SIZE_OF_STACK 100
+
 typedef struct oneAlsoTwoLinkedStructure{
     
     int data;
@@ -19,65 +21,26 @@ typedef struct oneAlsoTwoLinkedStructure{
 
 typedef int DataType;
 
-typedef struct stack{                  //结构体栈
-    int data[1024];
-    int top;
-}stack, *StackForEasierUse;
+typedef struct structOfStack{
 
-StackForEasierUse SqeStackInitstack(StackForEasierUse s)     //初始化栈
-
-{
-    s->top=0;
-    return s;
-}
-
-int SqeStackEmpty(StackForEasierUse s)           //判断栈是否为空
-
-{
-    if(s->top==0)
-    {
-        printf("这是空栈");
-        return 1;
-    }
-    else
-    {
-        printf("这不是空栈");
-        return 0;
-    }
-}
-
-void SqeStackPush(StackForEasierUse s ,int x)      //入栈
-
-{
-    s->top++;
-    s->data[s->top]=x;
-}
-
-int SqeStackPop(StackForEasierUse s)                 //出栈
-
-{
-    int temp;
-    temp=s->data[s->top];
-    s->top--;
-    return temp;
+    int data;
+    struct structOfStack *base;
+    struct structOfStack *top;
     
-}
+}structOfStack, *StackToOperate;
+
+//StackToOperate pushElementIntoStack(int lengthOfTheCreatingStack)
+//{
+//    StackToOperate stack,q,p;
+//    stack = (StackToOperate)malloc(sizeof(structOfStack));
+//    stack->data = 0;
+//    stack->top = NULL;
+//    stack->base = stack;
+//    
+//}
 
 
-void SqeStackPrint(StackForEasierUse s) //显示栈内所有内容
-{
-    int p;
-    p=s->top;
-    
-    while(p!=0)
-    {
-        printf("%4d",s->data[p]);
-        p--;
-    }
-    
-}
-
-
+void initStack()
 
 
 OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
@@ -192,12 +155,7 @@ int main(int argc, const char * argv[])
     //        (int)initTwoWaysLinkedList(5)->next->next->prev->data
     
     //       );
-    StackForEasierUse myStack;
-    myStack = (StackForEasierUse)malloc(sizeof(stack));
-    
-    SqeStackPrint(SqeStackInitstack(myStack));
-    free(myStack);
-    //system("pause");
+   
     return 0;
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF280DA1185355B50091DDBD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DF280DA0185355B50091DDBD /* main.c */; };
 		DF280DA3185355B50091DDBD /* linkedListOnceAgain.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF280DA2185355B50091DDBD /* linkedListOnceAgain.1 */; };
+		DF4601BF1855FEC000208093 /* exampleFile.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4601BE1855FEC000208093 /* exampleFile.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		DF280D9D185355B50091DDBD /* linkedListOnceAgain */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = linkedListOnceAgain; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF280DA0185355B50091DDBD /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		DF280DA2185355B50091DDBD /* linkedListOnceAgain.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = linkedListOnceAgain.1; sourceTree = "<group>"; };
+		DF4601BE1855FEC000208093 /* exampleFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = exampleFile.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				DF280DA0185355B50091DDBD /* main.c */,
+				DF4601BE1855FEC000208093 /* exampleFile.c */,
 				DF280DA2185355B50091DDBD /* linkedListOnceAgain.1 */,
 			);
 			path = linkedListOnceAgain;
@@ -117,6 +120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF4601BF1855FEC000208093 /* exampleFile.c in Sources */,
 				DF280DA1185355B50091DDBD /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +229,7 @@
 				DF280DA8185355B50091DDBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
