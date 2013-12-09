@@ -17,14 +17,76 @@ typedef struct oneAlsoTwoLinkedStructure{
     
 }oneAlsoTwoLinkedStructure, *OneWayLinkedList, *TwoWaysLinkedList;
 
+typedef int DataType;
+
+typedef struct stack{                  //结构体栈
+    int data[1024];
+    int top;
+}stack, *StackForEasierUse;
+
+StackForEasierUse SqeStackInitstack(StackForEasierUse s)     //初始化栈
+
+{
+    s->top=0;
+    return s;
+}
+
+int SqeStackEmpty(StackForEasierUse s)           //判断栈是否为空
+
+{
+    if(s->top==0)
+    {
+        printf("这是空栈");
+        return 1;
+    }
+    else
+    {
+        printf("这不是空栈");
+        return 0;
+    }
+}
+
+void SqeStackPush(StackForEasierUse s ,int x)      //入栈
+
+{
+    s->top++;
+    s->data[s->top]=x;
+}
+
+int SqeStackPop(StackForEasierUse s)                 //出栈
+
+{
+    int temp;
+    temp=s->data[s->top];
+    s->top--;
+    return temp;
+    
+}
+
+
+void SqeStackPrint(StackForEasierUse s) //显示栈内所有内容
+{
+    int p;
+    p=s->top;
+    
+    while(p!=0)
+    {
+        printf("%4d",s->data[p]);
+        p--;
+    }
+    
+}
+
+
+
 
 OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
 {
     OneWayLinkedList p = NULL, r =NULL, list = NULL;
-  
+    
     
     //p负责建立新节点,r负责临时存储
-
+    
     list = (OneWayLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
     list->data = 0;
     list->next = NULL;
@@ -34,7 +96,7 @@ OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
     {
         p = (OneWayLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
         //r = (OneWayLinkedList)malloc(sizeof(oneWayLinkedStructure));
-
+        
         p->data = i;
         p->next = NULL;
         p->prev = NULL;
@@ -63,25 +125,28 @@ TwoWaysLinkedList initTwoWaysLinkedList(int lengthOfTheCreatingList)
     list = (TwoWaysLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
     list->data = 0;
     list->next = NULL;
-    list->prev = NULL;
+    list->prev = NULL;//初始化list的第一个数据，
     
+    //从此处开始进入循环
     for (int i = 1;i <= lengthOfTheCreatingList; i++)
     {
-        p = (TwoWaysLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));
-        p->data = i;
-        p->next = NULL;
+        p = (TwoWaysLinkedList)malloc(sizeof(oneAlsoTwoLinkedStructure));//每次循环都新建节点p
+        p->data = i;//给每次新建的p赋值
+        p->next = NULL;//初始化每次新建的p
         p->prev = NULL;
         
         if (i == 1)
         {
-            list->next = p;
+            list->next = p;//如果是第一次循环,把list->next指向的地址设为p
         }
         else
         {
-            q->next = p;
-            p->prev = q;
+            q->next = p;//q此时即为上次循环中的list->next节点,在本次循环中只需要把本次新建的p赋值给q->next(即为list->next->next)
+            p->prev = q;//q此时即为上次循环中的list->next节点,本句即是设置q为p的前节点(即list->next->prev)
         }
-        q = p;
+        
+        q = p;//无论是第几次循环,都把q的地址存在p
+        //q此时即为本次循环中的list->next节点,在下次循环中只需要把下次新建的p赋值给q->next(即为list->next->next)
         
     }
     
@@ -103,6 +168,13 @@ void printOneWayLinkedList(oneAlsoTwoLinkedStructure *listToBePrinted)
 }
 
 
+void convertMyLinkedListToConverse(oneAlsoTwoLinkedStructure *listToBeConverted)
+{
+    oneAlsoTwoLinkedStructure *p = NULL;
+    
+    
+}
+
 
 
 
@@ -110,16 +182,23 @@ void printOneWayLinkedList(oneAlsoTwoLinkedStructure *listToBePrinted)
 
 int main(int argc, const char * argv[])
 {
-
-    //printOneWayLinkedList(initOneWayLinkedList(50));
-    printOneWayLinkedList(initTwoWaysLinkedList(5));
-    printf("The first num is %i, and 2nd num is %i, its  prev is %i\n",
-           
-           (int)initTwoWaysLinkedList(5)->next->data,
-           (int)initTwoWaysLinkedList(5)->next->next->data,
-           (int)initTwoWaysLinkedList(5)->next->next->prev->data
-           
-          );
+    
+    //printOneWayLinkedList(initOneWayLinkedList(5));
+    //printOneWayLinkedList(initTwoWaysLinkedList(5));
+    // printf("The first num is %i, and 2nd num is %i, its  prev is %i\n",
+    
+    //        (int)initTwoWaysLinkedList(5)->next->data,
+    //        (int)initTwoWaysLinkedList(5)->next->next->data,
+    //        (int)initTwoWaysLinkedList(5)->next->next->prev->data
+    
+    //       );
+    StackForEasierUse myStack;
+    myStack = (StackForEasierUse)malloc(sizeof(stack));
+    
+    SqeStackPrint(SqeStackInitstack(myStack));
+    free(myStack);
+    //system("pause");
     return 0;
+    
 }
 
