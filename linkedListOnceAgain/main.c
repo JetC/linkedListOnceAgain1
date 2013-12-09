@@ -21,7 +21,7 @@ typedef struct oneAlsoTwoLinkedStructure{
 OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList)
 {
     OneWayLinkedList p = NULL, r =NULL, list = NULL;
-    
+  
     
     //p负责建立新节点,r负责临时存储
 
