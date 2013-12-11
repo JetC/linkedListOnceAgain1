@@ -1,29 +1,17 @@
 //
-//  main.c
-//  linkedListOnceAgain
-//
-//  Created by 孙培峰 on 1312/07/.
-//  Copyright (c) 2013 孙培峰. All rights reserved.
-//
-
-#include <stdio.h>
-#include <stdlib.h>
-//#include "eader.h"
-
-//
 //  eader.h
 //  linkedListOnceAgain
 //
 //  Created by 孙培峰 on 1312/11/.
 //  Copyright (c) 2013 孙培峰. All rights reserved.
 //
-//
-//#ifndef linkedListOnceAgain_eader_h
-//#define linkedListOnceAgain_eader_h
+
+#ifndef linkedListOnceAgain_eader_h
+#define linkedListOnceAgain_eader_h
 
 
 
-//#endif
+#endif
 
 
 
@@ -199,26 +187,4 @@ void convertMyLinkedListToConverse(oneAlsoTwoLinkedStructure *listToBeConverted)
 }
 
 
-
-
-
-
-
-
-int main(int argc, const char * argv[])
-{
-    
-    printOneWayLinkedList(initOneWayLinkedList(5));
-    printOneWayLinkedList(initTwoWaysLinkedList(5));
-    printf("The first num is %i, and 2nd num is %i, its  prev is %i\n",
-
-        (int)initTwoWaysLinkedList(5)->next->data,
-        (int)initTwoWaysLinkedList(5)->next->next->data,
-        (int)initTwoWaysLinkedList(5)->next->next->prev->data
-
-           );
-   
-    return 0;
-    
-}
 
