@@ -8,27 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include "eader.h"
-
-//
-//  eader.h
-//  linkedListOnceAgain
-//
-//  Created by 孙培峰 on 1312/11/.
-//  Copyright (c) 2013 孙培峰. All rights reserved.
-//
-//
-//#ifndef linkedListOnceAgain_eader_h
-//#define linkedListOnceAgain_eader_h
-
-
-
-//#endif
-
-
 
 #define SIZE_OF_STACK 100
-
+#define STACK_INCREASEMENT 10
 
 typedef struct oneAlsoTwoLinkedStructure{
     
@@ -40,44 +22,14 @@ typedef struct oneAlsoTwoLinkedStructure{
 
 typedef int DataType;
 
-
-
-
-
 typedef struct structOfStack{
     
     int stackSize;
-    int base;
-    int top;
+    int *base;
+    int *top;
     
 }structOfStack, *StackToOperate;
 
-
-void printOneWayLinkedList(oneAlsoTwoLinkedStructure *listToBePrinted);
-StackToOperate initStack(StackToOperate s);
-OneWayLinkedList initOneWayLinkedList(int lengthOfTheCreatingList);
-TwoWaysLinkedList initTwoWaysLinkedList(int lengthOfTheCreatingList);
-void convertMyLinkedListToConverse(oneAlsoTwoLinkedStructure *listToBeConverted);
-
-
-
-
-StackToOperate initStack(StackToOperate s)
-{
-    s->base = (int)malloc(sizeof(int)*SIZE_OF_STACK);
-    if (!s->base)
-    {
-        printf("Failed to find s->base");
-        exit(100);
-    }
-    s->top = s->base;
-    s->stackSize = SIZE_OF_STACK;
-    
-    return s;
-}
-
-
-//
 //StackToOperate pushElementIntoStack(int lengthOfTheCreatingStack)
 //{
 //    StackToOperate stack,q,p;
@@ -87,18 +39,49 @@ StackToOperate initStack(StackToOperate s)
 //    stack->base = stack;
 //
 //}
-//
-//  linkedList.c
-//  linkedListOnceAgain
-//
-//  Created by 孙培峰 on 1312/11/.
-//  Copyright (c) 2013 孙培峰. All rights reserved.
-//
 
+int initStack(structOfStack &s)
+{
+    s.base = (int *)malloc(sizeof(int)*SIZE_OF_STACK);
+    if (!s.base)
+    {
+        printf("Failed to find s->base");
+        exit(100);
+    }
+    s.top = s.base;
+    s.stackSize = SIZE_OF_STACK;
+    
+    return s;
+}
 
+int getTopElement(StackToOperate s,int e)
+{
+    if (s->top == s->base)
+    {
+        printf("Stack is EMPTY!");
+        exit(101);
+    }
+    e = (s->top)-1;
+    return e;
+}
 
-
-
+StackToOperate pushElementIn(StackToOperate s,int e)
+{
+    if ((s->top)-(s->base) >= s->stackSize)
+    {
+        s->base = (StackToOperate)realloc(s->base,sizeof(StackToOperate)*(s->stackSize + STACK_INCREASEMENT));
+        if (!s->base)
+        {
+            exit(102);
+        }
+        s->top = s->base + s->stackSize;
+        s->stackSize +=STACK_INCREASEMENT;
+    }
+    
+    s->top = e;
+    s
+    
+}
 
 
 
@@ -203,21 +186,24 @@ void convertMyLinkedListToConverse(oneAlsoTwoLinkedStructure *listToBeConverted)
 
 
 
-
-
 int main(int argc, const char * argv[])
 {
     
-    printOneWayLinkedList(initOneWayLinkedList(5));
-    printOneWayLinkedList(initTwoWaysLinkedList(5));
-    printf("The first num is %i, and 2nd num is %i, its  prev is %i\n",
-
-        (int)initTwoWaysLinkedList(5)->next->data,
-        (int)initTwoWaysLinkedList(5)->next->next->data,
-        (int)initTwoWaysLinkedList(5)->next->next->prev->data
-
-           );
-   
+//    printOneWayLinkedList(initOneWayLinkedList(5));
+//    printOneWayLinkedList(initTwoWaysLinkedList(5));
+//    printf("The first num is %i, and 2nd num is %i, its  prev is %i\n",
+//    
+//            (int)initTwoWaysLinkedList(5)->next->data,
+//            (int)initTwoWaysLinkedList(5)->next->next->data,
+//            (int)initTwoWaysLinkedList(5)->next->next->prev->data
+//    
+//           );
+    structOfStack *s;
+    int o,l = 0;
+    s = (StackToOperate)malloc(sizeof(StackToOperate));
+    o = getTopElement(initStack(*s), l);
+    printf("%i%i",o,l);
+    
     return 0;
     
 }

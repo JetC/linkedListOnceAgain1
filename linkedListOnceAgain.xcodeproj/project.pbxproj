@@ -10,8 +10,6 @@
 		DF280DA1185355B50091DDBD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DF280DA0185355B50091DDBD /* main.c */; };
 		DF280DA3185355B50091DDBD /* linkedListOnceAgain.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = DF280DA2185355B50091DDBD /* linkedListOnceAgain.1 */; };
 		DF4601BF1855FEC000208093 /* exampleFile.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4601BE1855FEC000208093 /* exampleFile.c */; };
-		DFE0B1E81858938700100DC8 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = DFE0B1E71858938700100DC8 /* stack.c */; };
-		DFE0B1EA1858940800100DC8 /* linkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = DFE0B1E91858940800100DC8 /* linkedList.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,9 +30,6 @@
 		DF280DA0185355B50091DDBD /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		DF280DA2185355B50091DDBD /* linkedListOnceAgain.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = linkedListOnceAgain.1; sourceTree = "<group>"; };
 		DF4601BE1855FEC000208093 /* exampleFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = exampleFile.c; sourceTree = "<group>"; };
-		DFE0B1E71858938700100DC8 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
-		DFE0B1E91858940800100DC8 /* linkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = linkedList.c; sourceTree = "<group>"; };
-		DFE0B1EB185894E600100DC8 /* eader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				DF280DA0185355B50091DDBD /* main.c */,
-				DFE0B1E71858938700100DC8 /* stack.c */,
-				DFE0B1E91858940800100DC8 /* linkedList.c */,
 				DF4601BE1855FEC000208093 /* exampleFile.c */,
 				DF280DA2185355B50091DDBD /* linkedListOnceAgain.1 */,
-				DFE0B1EB185894E600100DC8 /* eader.h */,
 			);
 			path = linkedListOnceAgain;
 			sourceTree = "<group>";
@@ -128,8 +120,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFE0B1EA1858940800100DC8 /* linkedList.c in Sources */,
-				DFE0B1E81858938700100DC8 /* stack.c in Sources */,
 				DF4601BF1855FEC000208093 /* exampleFile.c in Sources */,
 				DF280DA1185355B50091DDBD /* main.c in Sources */,
 			);
